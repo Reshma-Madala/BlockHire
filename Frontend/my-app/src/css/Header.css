@@ -1,0 +1,129 @@
+/* ===== HEADER STYLES ===== */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--gradient-header);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(20px);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--primary-500) 50%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 var(--space-6);
+}
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+.header-right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.header-center img {
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.4));
+  transition: transform var(--transition-base), filter var(--transition-base);
+}
+
+.header-center img:hover {
+  transform: scale(1.05) rotate(5deg);
+  filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.6));
+}
+
+.header-center h1 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, var(--primary-300) 50%, var(--secondary-300) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.username {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--neutral-200);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.username.clickable {
+  cursor: pointer;
+}
+
+.username.clickable:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--primary-300);
+  transform: translateY(-1px);
+}
+
+.logout-button {
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: var(--error-400);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+}
+
+.logout-button:hover {
+  background: var(--error-500);
+  border-color: var(--error-500);
+  color: white;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}

@@ -1,0 +1,54 @@
+/* ===== BOUNTY TILE LIST STYLES ===== */
+.bounty-tile-list-container {
+  width: calc(100% - 80px);
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: calc(72px + var(--space-8));
+  padding-bottom: calc(48px + var(--space-8));
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+  margin-left: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.bounty-list-header {
+  margin-bottom: var(--space-6);
+}
+
+.bounty-list-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, var(--primary-300) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-2);
+}
+
+.bounty-list-subtitle {
+  color: var(--neutral-400);
+  font-size: 0.95rem;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+  opacity: 0.5;
+}
+
+.empty-state-text {
+  color: var(--neutral-400);
+  font-size: 1rem;
+}

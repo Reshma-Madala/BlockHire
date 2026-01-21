@@ -1,0 +1,63 @@
+/* ===== CHAT MESSAGE STYLES ===== */
+.chat-message {
+  display: flex;
+  margin: var(--space-3) 0;
+  width: 100%;
+}
+
+.chat-left {
+  justify-content: flex-start;
+}
+
+.chat-right {
+  justify-content: flex-end;
+}
+
+.chat-bubble {
+  max-width: 70%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--neutral-200);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  word-wrap: break-word;
+  font-weight: normal;
+  backdrop-filter: blur(5px);
+}
+
+.chat-left .chat-bubble {
+  border-bottom-left-radius: var(--radius-sm);
+}
+
+.chat-right .chat-bubble {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.1));
+  border-color: rgba(6, 182, 212, 0.2);
+  color: var(--neutral-100);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.chat-meta {
+  margin-top: var(--space-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.chat-username {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--primary-400);
+}
+
+.chat-time {
+  display: block;
+  font-size: 0.7rem;
+  font-style: normal;
+  color: var(--neutral-500);
+}

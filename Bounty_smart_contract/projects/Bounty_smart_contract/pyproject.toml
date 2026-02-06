@@ -2,7 +2,7 @@
 name = "Bounty_smart_contract"
 version = "0.1.0"
 description = "Algorand smart contracts"
-authors = ["Paul-Jonathan2005 <kakani.jonathan@gmail.com>"]
+authors = ["M.V.Reshma P.Nikitha G.Trishna U.Vaishnavi"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

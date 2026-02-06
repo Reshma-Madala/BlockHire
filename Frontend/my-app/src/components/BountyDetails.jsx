@@ -135,7 +135,9 @@ export default function BountyDetails() {
       if (!WalletAddress) {
         setAlertMessage('Please Connect To Pera Wallet From UserPage');
         setShowAlert(true);
-        setType("success")
+        /*setType("success")*/
+        setType("error")
+        setLoading(false);
         return;
       }
       const callSmartContract = await votingSmartContract(bountyId, voted_for, activeAddress, transactionSigner, algodClient);
@@ -165,7 +167,9 @@ export default function BountyDetails() {
       if (!WalletAddress) {
         setAlertMessage('Please Connect To Pera Wallet From UserPage');
         setShowAlert(true);
-        setType("success")
+        //setType("success")
+        setType("error")
+        setLoading(false);
         return;
       }
       const callSmartContract = await startDisputeSmartContract(bountyId, activeAddress, transactionSigner, algodClient);
@@ -196,7 +200,8 @@ export default function BountyDetails() {
       if (!clientWalletAddress) {
         setAlertMessage('Please Connect To Pera Wallet From UserPage');
         setShowAlert(true);
-        setType("success")
+        setType("error")
+        setLoading(false)
         return;
       }
       const callSmartContract = await transferAlgosToFreelancer(bountyId, activeAddress, transactionSigner, algodClient);
@@ -226,7 +231,9 @@ export default function BountyDetails() {
       if (!clientWalletAddress) {
         setAlertMessage('Please Connect To Pera Wallet From UserPage');
         setShowAlert(true);
-        setType("success")
+        //setType("success")
+        setType("error")
+        setLoading(false)
         return;
       }
       const callSmartContract = await claimRewardSmartContract(bountyId, activeAddress, transactionSigner, algodClient);
@@ -256,7 +263,9 @@ export default function BountyDetails() {
       if (!clientWalletAddress) {
         setAlertMessage('Please Connect To Pera Wallet From UserPage');
         setShowAlert(true);
-        setType("success")
+        //setType("success")
+        setType("error")
+        setLoading(false)
         return;
       }
       const callSmartContract = await voterClaimRewardSmartContract(bountyId, activeAddress, transactionSigner, algodClient);
@@ -315,9 +324,13 @@ export default function BountyDetails() {
 
   const handleComplaintSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const data = await postComplaintMessage(complaintData, bountyId);
       setComplaintData(prev => ({ ...prev, complaint: '' }));
+      setAlertMessage('Message sent successfully');
+      setShowAlert(true);
+      setType("success")
       setTimeout(() => {
         getBountyDetails();
       }, 1500);
@@ -326,6 +339,8 @@ export default function BountyDetails() {
       setAlertMessage(msg);
       setShowAlert(true);
       setType("error")
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -336,7 +351,8 @@ export default function BountyDetails() {
       if (!freelancerWalletAddress) {
         setAlertMessage('Please Connect To Pera Wallet From UserPage');
         setShowAlert(true);
-        setType("success")
+        setType("error")
+        setLoading(false);
         return;
       }
 
@@ -539,7 +555,7 @@ export default function BountyDetails() {
                 <MessageTileList chatMessages={complaintMessages} />
                 <div ref={chatEndRef} />
               </div>
-              {bountyDetails.is_disputed && (UserId == bountyDetails.client_id || UserId == bountyDetails.assigned_candidate_id) && !bountyDetails.is_amount_transfered && !bountyDetails.is_client_amount_transfered &&
+              {bountyDetails.is_disputed && (UserId === bountyDetails.client_id || UserId === bountyDetails.assigned_candidate_id) && !bountyDetails.is_amount_transfered && !bountyDetails.is_client_amount_transfered &&
                 <form onSubmit={handleComplaintSubmit} className="chat-form">
                   <input
                     type="text"

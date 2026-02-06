@@ -565,7 +565,8 @@ def transfer_amount(request, is_freelancer, bounty_id):
 def raise_bounty_dispute(request, bounty_id):
     bounty = Bounties.objects.get(id=bounty_id)
     bounty.is_disputed = True
-    bounty.dispute_end_date = (datetime.now() + timedelta(days=3)).isoformat()
+    # bounty.dispute_end_date = (datetime.now() + timedelta(days=3)).isoformat()
+    bounty.dispute_end_date = datetime.now(timezone.utc) + timedelta(days=3) 
     bounty.save()
     return Response(
         {
